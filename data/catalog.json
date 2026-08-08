@@ -156,9 +156,9 @@
       "price": 160,
       "currency": "EUR",
       "dateAdded": "2026-08-08",
-      "image": "assets/images/tirzepatide.webp",
+      "image": "assets/images/tirzpen.png",
       "gallery": [
-        "assets/images/tirzepatide.webp"
+        "assets/images/tirzpen.png"
       ],
       "specifications": [
         {
@@ -197,9 +197,9 @@
       "price": 80,
       "currency": "EUR",
       "dateAdded": "2026-08-08",
-      "image": "assets/images/ghk-cu.webp",
+      "image": "assets/images/ghkcupen.png",
       "gallery": [
-        "assets/images/ghk-cu.webp"
+        "assets/images/ghkcupen.png"
       ],
       "specifications": [
         {
@@ -229,64 +229,23 @@
       ]
     },
     {
-      "id": "testeamp",
-      "name": "Testosterone Enanthate 250 mg/mL",
-      "description": "10 × 1 mL pharmaceutical ampoules.",
-      "longDescription": "Pharmaceutical testosterone enanthate. Genuine COA available on request.",
-      "category": "hormones",
-      "status": "in-stock",
-      "price": 60,
-      "currency": "EUR",
-      "dateAdded": "2026-08-08",
-      "image": "assets/images/testosterone.webp",
-      "gallery": [
-        "assets/images/testosterone.webp"
-      ],
-      "specifications": [
-        {
-          "label": "Packaging",
-          "value": "10 x 1 mL ampoules"
-        },
-        {
-          "label": "Availability",
-          "value": "In Stock"
-        },
-        {
-          "label": "Currency",
-          "value": "EUR"
-        },
-        {
-          "label": "COA",
-          "value": "Available on request"
-        },
-        {
-          "label": "Shipping",
-          "value": "International"
-        },
-        {
-          "label": "Brand",
-          "value": "Synvorax Labs"
-        }
-      ]
-    },
-    {
       "id": "tad5",
       "name": "Tadalafil 5 mg",
-      "description": "10 tablets per box.",
+      "description": "10 tablets per blister strip.",
       "longDescription": "Tadalafil tablets.",
       "category": "performance",
       "status": "in-stock",
       "price": 10,
       "currency": "EUR",
       "dateAdded": "2026-08-08",
-      "image": "assets/images/tadalafil.webp",
+      "image": "assets/images/vidalista-5-mg-tablets.jpg",
       "gallery": [
-        "assets/images/tadalafil.webp"
+        "assets/images/vidalista-5-mg-tablets.jpg"
       ],
       "specifications": [
         {
           "label": "Packaging",
-          "value": "10 tablets"
+          "value": "Price per 1 blister stripe - 10 tablets"
         },
         {
           "label": "Availability",
@@ -306,7 +265,7 @@
         },
         {
           "label": "Brand",
-          "value": "Synvorax Labs"
+          "value": "Centurion Laboratories"
         }
       ]
     },
@@ -320,14 +279,14 @@
       "price": 15,
       "currency": "EUR",
       "dateAdded": "2026-08-08",
-      "image": "assets/images/tadalafil.webp",
+      "image": "assets/images/vidalista-10-mg-tablets.jfif",
       "gallery": [
-        "assets/images/tadalafil.webp"
+        "assets/images/vidalista-10-mg-tablets.jfif"
       ],
       "specifications": [
         {
           "label": "Packaging",
-          "value": "10 tablets"
+          "value": "Price per 1 blister stripe - 10 tablets"
         },
         {
           "label": "Availability",
@@ -347,130 +306,7 @@
         },
         {
           "label": "Brand",
-          "value": "Synvorax Labs"
-        }
-      ]
-    },
-    {
-      "id": "hcg5000",
-      "name": "HCG 5000 IU Injection",
-      "description": "Pharmaceutical HCG injection.",
-      "longDescription": "HCG 5000 IU.",
-      "category": "support",
-      "status": "in-stock",
-      "price": 30,
-      "currency": "EUR",
-      "dateAdded": "2026-08-08",
-      "image": "assets/images/hcg.webp",
-      "gallery": [
-        "assets/images/hcg.webp"
-      ],
-      "specifications": [
-        {
-          "label": "Packaging",
-          "value": "1 vial"
-        },
-        {
-          "label": "Availability",
-          "value": "In Stock"
-        },
-        {
-          "label": "Currency",
-          "value": "EUR"
-        },
-        {
-          "label": "COA",
-          "value": "Available on request"
-        },
-        {
-          "label": "Shipping",
-          "value": "International"
-        },
-        {
-          "label": "Brand",
-          "value": "Synvorax Labs"
-        }
-      ]
-    },
-    {
-      "id": "minox5",
-      "name": "Minoxidil 5 mg",
-      "description": "Box with 6 blister strips.",
-      "longDescription": "Oral Minoxidil 5 mg.",
-      "category": "hair",
-      "status": "in-stock",
-      "price": 40,
-      "currency": "EUR",
-      "dateAdded": "2026-08-08",
-      "image": "assets/images/minoxidil.webp",
-      "gallery": [
-        "assets/images/minoxidil.webp"
-      ],
-      "specifications": [
-        {
-          "label": "Packaging",
-          "value": "6 blister strips"
-        },
-        {
-          "label": "Availability",
-          "value": "In Stock"
-        },
-        {
-          "label": "Currency",
-          "value": "EUR"
-        },
-        {
-          "label": "COA",
-          "value": "N/A"
-        },
-        {
-          "label": "Shipping",
-          "value": "International"
-        },
-        {
-          "label": "Brand",
-          "value": "Synvorax Labs"
-        }
-      ]
-    },
-    {
-      "id": "mel5",
-      "name": "Melatonin 5 mg",
-      "description": "10 tablets per box.",
-      "longDescription": "Melatonin tablets.",
-      "category": "recovery",
-      "status": "in-stock",
-      "price": 10,
-      "currency": "EUR",
-      "dateAdded": "2026-08-08",
-      "image": "assets/images/melatonin.webp",
-      "gallery": [
-        "assets/images/melatonin.webp"
-      ],
-      "specifications": [
-        {
-          "label": "Packaging",
-          "value": "10 tablets"
-        },
-        {
-          "label": "Availability",
-          "value": "In Stock"
-        },
-        {
-          "label": "Currency",
-          "value": "EUR"
-        },
-        {
-          "label": "COA",
-          "value": "N/A"
-        },
-        {
-          "label": "Shipping",
-          "value": "International"
-        },
-        {
-          "label": "Brand",
-          "value": "Synvorax Labs"
+          "value": "Centurion Laboratories"
         }
       ]
     }

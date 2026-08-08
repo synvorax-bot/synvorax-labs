@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" fill="none">
-  <rect width="400" height="250" fill="#080c11"/>
-  <g transform="translate(200,120)" stroke="#7fdfff" stroke-width="2" opacity="0.8" fill="none">
-    <path d="M0 -45 v90 M-39 -22 l78 45 M-39 22 l78 -45"/>
-    <circle cx="0" cy="0" r="6" fill="#7fdfff"/>
-  </g>
-  <text x="200" y="235" text-anchor="middle" fill="#18E38A" font-family="Inter,sans-serif" font-size="10" font-weight="600" opacity="0.7">LIQUID NITROGEN (VAPOR)</text>
-</svg>
