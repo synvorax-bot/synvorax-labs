@@ -1,0 +1,188 @@
+/* ============================================================
+   Synvorax Labs — Animations
+   ============================================================ */
+
+/* Reveal animations — initial state */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.revealed {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Stagger children */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+/* Text split animation chars */
+.char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Hero entrance — GSAP handles animation; fallback visible without JS */
+.hero__eyebrow,
+.hero__title-line,
+.hero__title-accent,
+.hero__description,
+.hero__buttons .btn {
+  opacity: 1;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Pulse ring */
+@keyframes pulseRing {
+  0% { transform: scale(0.95); opacity: 0.5; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+  100% { transform: scale(0.95); opacity: 0.5; }
+}
+
+/* Gradient shift */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-gradient {
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+
+/* Button ripple */
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(0);
+  animation: rippleEffect 0.6s ease-out;
+  pointer-events: none;
+}
+
+@keyframes rippleEffect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Card tilt perspective */
+.product-card {
+  perspective: 1000px;
+}
+
+/* Counter animation */
+.stat-card__value {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Modal entrance */
+.modal__container {
+  will-change: transform, opacity;
+}
+
+/* Scroll indicator bounce */
+.hero__scroll {
+  animation: scrollBounce 3s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* Filter button pop */
+.filter-btn.active {
+  animation: filterPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes filterPop {
+  0% { transform: scale(0.9); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Loading dots */
+@keyframes loadingDots {
+  0%, 80%, 100% { opacity: 0.3; }
+  40% { opacity: 1; }
+}
+
+/* Navbar slide down */
+.navbar {
+  transform: translateY(0);
+  transition: transform 0.4s ease, background var(--transition-base);
+}
+
+.navbar.hidden-nav {
+  transform: translateY(-100%);
+}
+
+/* Image zoom in modal */
+.modal__hero img {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal.active .modal__hero img {
+  animation: modalImageZoom 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes modalImageZoom {
+  from { transform: scale(1.1); }
+  to { transform: scale(1); }
+}
+
+/* Footer fade in */
+.footer__grid > * {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal, .reveal-left, .reveal-right, .reveal-scale {
+    opacity: 1;
+    transform: none;
+  }
+}

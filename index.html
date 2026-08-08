@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050505">
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <link rel="apple-touch-icon" href="assets/logo.svg">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=13">
+  <link rel="stylesheet" href="css/animations.css?v=13">
+  <link rel="stylesheet" href="css/responsive.css?v=13">
+  <!-- SEO meta injected by app.js -->
+  <script id="seo-placeholder"></script>
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loader" class="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <div class="loader__logo">
+        <img src="assets/logo.svg" alt="" width="48" height="48">
+      </div>
+      <div class="loader__bar"><div class="loader__progress"></div></div>
+      <p class="loader__text"></p>
+      <span class="loader__subtext"></span>
+    </div>
+  </div>
+
+  <!-- Animated Background -->
+  <canvas id="bg-canvas" class="bg-canvas" aria-hidden="true"></canvas>
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="gradient-orb gradient-orb--1" aria-hidden="true"></div>
+  <div class="gradient-orb gradient-orb--2" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header id="navbar" class="navbar">
+    <nav class="navbar__inner container">
+      <a href="#hero" class="navbar__brand" aria-label="Synvorax Labs home">
+        <img class="navbar__logo" src="assets/logo.svg" alt="" width="32" height="32">
+        <span class="navbar__name"></span>
+      </a>
+      <ul class="navbar__links" id="nav-links" role="list"></ul>
+      <div class="navbar__actions">
+        <button id="theme-toggle" class="btn-icon" aria-label="Toggle theme">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a id="nav-cta" class="btn btn--primary btn--sm" href="#contact"></a>
+        <button id="nav-toggle" class="navbar__toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero -->
+    <section id="hero" class="hero">
+      <div class="hero__inner container">
+        <div class="hero__content">
+          <span class="eyebrow hero__eyebrow"></span>
+          <h1 class="hero__title">
+            <span class="hero__title-line"></span>
+            <span class="hero__title-accent text-gradient"></span>
+          </h1>
+          <p class="hero__description"></p>
+          <div class="hero__buttons" id="hero-buttons"></div>
+        </div>
+        <div class="hero__visual">
+          <canvas id="dna-canvas" class="dna-canvas" aria-hidden="true"></canvas>
+          <div class="hero__visual-glow" aria-hidden="true"></div>
+        </div>
+      </div>
+      <div class="hero__scroll" aria-hidden="true">
+        <span>Catalog</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- Catalog -->
+    <section id="catalog" class="catalog section">
+      <div class="container">
+        <div class="section-header catalog__header">
+          <div>
+            <span class="eyebrow catalog__eyebrow"></span>
+            <h2 class="section-title catalog__title"></h2>
+            <p class="section-desc catalog__description"></p>
+          </div>
+        </div>
+
+        <div class="catalog__controls">
+          <div class="catalog__search-wrap">
+            <svg class="catalog__search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="search" id="catalog-search" class="catalog__search" autocomplete="off">
+          </div>
+          <div class="catalog__filters">
+            <div class="filter-group" id="category-filters"></div>
+            <div class="filter-group" id="status-filters"></div>
+            <select id="sort-select" class="catalog__sort" aria-label="Sort products"></select>
+          </div>
+        </div>
+
+        <p class="catalog__results" id="catalog-results" aria-live="polite"></p>
+
+        <div class="catalog__grid" id="catalog-grid"></div>
+
+        <div class="catalog__load-more-wrap">
+          <button id="load-more" class="btn btn--secondary"></button>
+        </div>
+
+        <!-- Order via Telegram -->
+        <div class="order-cta glass" id="order-cta">
+          <div class="order-cta__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          </div>
+          <div class="order-cta__body">
+            <h3 class="order-cta__title"></h3>
+            <p class="order-cta__text"></p>
+          </div>
+          <a class="btn btn--primary btn--lg order-cta__btn" id="order-cta-btn" target="_blank" rel="noopener noreferrer"></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="assets/logo.svg" alt="" width="36" height="36">
+          <span class="footer__name"></span>
+          <p class="footer__tagline"></p>
+        </div>
+        <div class="footer__order">
+          <h3 class="footer__order-title"></h3>
+          <p class="footer__order-text"></p>
+          <a class="btn btn--primary btn--sm footer__order-btn" id="footer-order-btn" target="_blank" rel="noopener noreferrer"></a>
+        </div>
+        <div class="footer__links" id="footer-links"></div>
+        <div class="footer__social" id="footer-social"></div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright"></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Product Modal -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal__backdrop"></div>
+    <div class="modal__container">
+      <button class="modal__close" aria-label="Close modal">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="modal__content" id="modal-content"></div>
+    </div>
+  </div>
+
+  <!-- External Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
+
+  <!-- App Scripts -->
+  <script src="js/background.js?v=13" defer></script>
+  <script src="js/animations.js?v=13" defer></script>
+  <script src="js/modal.js?v=13" defer></script>
+  <script src="js/search.js?v=13" defer></script>
+  <script src="js/catalog.js?v=13" defer></script>
+  <script src="js/app.js?v=13" defer></script>
+</body>
+</html>

@@ -1,0 +1,681 @@
+{
+  "company": {
+    "name": "Synvorax Labs",
+    "tagline": "Laboratory Vials & Glassware",
+    "description": "Supplier of laboratory vials, bottles and cryovials in glass and polypropylene.",
+    "founded": 2019,
+    "headquarters": "",
+    "email": "",
+    "phone": ""
+  },
+  "seo": {
+    "title": "Synvorax Labs — Laboratory Vials & Glassware Catalog",
+    "description": "Catalog of laboratory vials, bottles and cryovials with prices. Order via Telegram.",
+    "keywords": "vials, bottles, cryovials, glassware, laboratory, HPLC, autosampler, amber, borosilicate",
+    "url": "https://synvoraxlabs.com",
+    "ogImage": "assets/hero.webp",
+    "twitterHandle": "@synvoraxlabs"
+  },
+  "telegram": {
+    "url": "https://t.me/synvoraxlabs",
+    "handle": "@synvoraxlabs",
+    "label": "Order on Telegram"
+  },
+  "theme": {
+    "default": "dark",
+    "colors": {
+      "background": "#050505",
+      "accentPrimary": "#00FF99",
+      "accentSecondary": "#00D67F",
+      "accentTertiary": "#18E38A"
+    }
+  },
+  "loading": {
+    "text": "Loading catalog",
+    "subtext": "Synvorax Labs"
+  },
+  "navigation": [
+    {
+      "id": "catalog",
+      "label": "Catalog",
+      "href": "#catalog"
+    }
+  ],
+  "hero": {
+    "eyebrow": "Laboratory Supplies",
+    "headline": "Laboratory Vials",
+    "headlineAccent": "& Glassware",
+    "description": "Vials, bottles and cryovials in borosilicate glass and polypropylene — for chromatography, storage, sampling and cryopreservation. Fast ordering via Telegram.",
+    "buttons": [
+      {
+        "label": "View Catalog",
+        "href": "#catalog",
+        "variant": "primary"
+      },
+      {
+        "label": "Order on Telegram",
+        "href": "https://t.me/synvoraxlabs",
+        "variant": "secondary"
+      }
+    ],
+    "image": "assets/hero.webp"
+  },
+  "categories": [
+    {
+      "id": "all",
+      "label": "All",
+      "color": "#00FF99"
+    },
+    {
+      "id": "clear",
+      "label": "Clear Glass",
+      "color": "#00D67F"
+    },
+    {
+      "id": "amber",
+      "label": "Amber Glass",
+      "color": "#18E38A"
+    },
+    {
+      "id": "autosampler",
+      "label": "Autosampler HPLC/GC",
+      "color": "#00FF99"
+    },
+    {
+      "id": "crimp",
+      "label": "Crimp / Headspace",
+      "color": "#00D67F"
+    },
+    {
+      "id": "cryo",
+      "label": "Cryogenic",
+      "color": "#18E38A"
+    }
+  ],
+  "statuses": [
+    {
+      "id": "all",
+      "label": "All Status"
+    },
+    {
+      "id": "in-stock",
+      "label": "In Stock",
+      "color": "#00FF99"
+    },
+    {
+      "id": "on-order",
+      "label": "On Order",
+      "color": "#F59E0B"
+    },
+    {
+      "id": "out-of-stock",
+      "label": "Out of Stock",
+      "color": "#EF4444"
+    }
+  ],
+  "sortOptions": [
+    {
+      "id": "newest",
+      "label": "Newest First"
+    },
+    {
+      "id": "alphabetical",
+      "label": "A → Z"
+    },
+    {
+      "id": "price-asc",
+      "label": "Price: Low → High"
+    },
+    {
+      "id": "price-desc",
+      "label": "Price: High → Low"
+    },
+    {
+      "id": "status",
+      "label": "By Availability"
+    }
+  ],
+  "products": [
+    {
+      "id": "vial-clear-2ml-screw",
+      "name": "Clear Glass Vial 2 mL — Screw Top",
+      "description": "Clear Type I borosilicate glass vial, 2 mL, 8-425 thread. Pack of 100 units.",
+      "longDescription": "Screw-top vial in low-extractable Type I borosilicate glass, ideal for sample storage and chromatography. Compatible with 8-425 screw caps with PTFE/silicone septa. Neutral inner surface that minimizes compound adsorption.",
+      "category": "clear",
+      "status": "in-stock",
+      "price": 18,
+      "currency": "EUR",
+      "dateAdded": "2026-07-20",
+      "image": "assets/images/vial-clear.svg",
+      "gallery": [
+        "assets/images/vial-clear.svg",
+        "assets/images/vial-clear-detail.svg"
+      ],
+      "specifications": [
+        {
+          "label": "Volume",
+          "value": "2 mL"
+        },
+        {
+          "label": "Material",
+          "value": "Type I borosilicate glass"
+        },
+        {
+          "label": "Closure",
+          "value": "8-425 screw thread"
+        },
+        {
+          "label": "Color",
+          "value": "Clear"
+        },
+        {
+          "label": "Pack",
+          "value": "100 units"
+        },
+        {
+          "label": "Application",
+          "value": "Storage / HPLC"
+        }
+      ]
+    },
+    {
+      "id": "vial-amber-2ml-screw",
+      "name": "Amber Glass Vial 2 mL — Screw Top",
+      "description": "Amber 2 mL vial with UV protection for light-sensitive samples. 8-425 thread. Pack of 100.",
+      "longDescription": "Type I amber glass vial that blocks up to 99% of UV radiation, protecting light-sensitive compounds. 8-425 thread compatible with PTFE/silicone septa. Recommended for long-term samples and light-sensitive analyses.",
+      "category": "amber",
+      "status": "in-stock",
+      "price": 22,
+      "currency": "EUR",
+      "dateAdded": "2026-07-18",
+      "image": "assets/images/vial-amber.svg",
+      "gallery": [
+        "assets/images/vial-amber.svg",
+        "assets/images/vial-amber-detail.svg"
+      ],
+      "specifications": [
+        {
+          "label": "Volume",
+          "value": "2 mL"
+        },
+        {
+          "label": "Material",
+          "value": "Type I amber borosilicate glass"
+        },
+        {
+          "label": "Closure",
+          "value": "8-425 screw thread"
+        },
+        {
+          "label": "UV Protection",
+          "value": "≥99%"
+        },
+        {
+          "label": "Pack",
+          "value": "100 units"
+        },
+        {
+          "label": "Application",
+          "value": "Light-sensitive samples"
+        }
+      ]
+    },
+    {
+      "id": "vial-autosampler-crimp",
+      "name": "Autosampler Vial 1.5 mL — Crimp",
+      "description": "HPLC/GC crimp vial 11 mm, 1.5 mL, clear glass. Pack of 100.",
+      "longDescription": "11 mm crimp vial for HPLC and GC autosamplers. High-purity clear glass with flat bottom for consistent optical reading. Compatible with 11 mm aluminum caps and PTFE/rubber septa.",
+      "category": "autosampler",
+      "status": "in-stock",
+      "price": 28,
+      "currency": "EUR",
+      "dateAdded": "2026-07-25",
+      "image": "assets/images/vial-autosampler.svg",
+      "gallery": [
+        "assets/images/vial-autosampler.svg"
+      ],
+      "specifications": [
+        {
+          "label": "Volume",
+          "value": "1.5 mL"
+        },
+        {
+          "label": "Material",
+          "value": "Type I clear glass"
+        },
+        {
+          "label": "Closure",
+          "value": "11 mm crimp"
+        },
+        {
+          "label": "Bottom",
+          "value": "Flat"
+        },
+        {
+          "label": "Pack",
+          "value": "100 units"
+        },
+        {
+          "label": "Application",
+          "value": "HPLC/GC autosampler"
+        }
+      ]
+    },
+    {
+      "id": "vial-autosampler-snap",
+      "name": "Autosampler Vial 1.5 mL — Snap Cap",
+      "description": "Snap-cap 1.5 mL vial for autosampler. Easy filling. Pack of 100.",
+      "longDescription": "1.5 mL snap-cap vial for high throughput in autosamplers. Wide opening that makes pipette filling easier. Polypropylene cap with pre-assembled septum available separately.",
+      "category": "autosampler",
+      "status": "on-order",
+      "price": 26,
+      "currency": "EUR",
+      "dateAdded": "2026-06-30",
+      "image": "assets/images/vial-autosampler.svg",
+      "gallery": [
+        "assets/images/vial-autosampler.svg"
+      ],
+      "specifications": [
+        {
+          "label": "Volume",
+          "value": "1.5 mL"
+        },
+        {
+          "label": "Material",
+          "value": "Type I clear glass"
+        },
+        {
+          "label": "Closure",
+          "value": "11 mm snap cap"
+        },
+        {
+          "label": "Opening",
+          "value": "Wide"
+        },
+        {
+          "label": "Pack",
+          "value": "100 units"
+        },
+        {
+          "label": "Application",
+          "value": "HPLC autosampler"
+        }
+      ]
+    },
+    {
+      "id": "vial-serum-10ml",
+      "name": "Serum Vial 10 mL — Clear",
+      "description": "10 mL clear glass serum vial, 20 mm neck for flip-off cap. Pack of 50.",
+      "longDescription": "10 mL Type I glass serum vial, 20 mm neck compatible with rubber stoppers and aluminum flip-off caps. Uniform walls and stable base for lyophilization and solution storage.",
+      "category": "clear",
+      "status": "in-stock",
+      "price": 35,
+      "currency": "EUR",
+      "dateAdded": "2026-07-10",
+      "image": "assets/images/vial-serum.svg",
+      "gallery": [
+        "assets/images/vial-serum.svg"
+      ],
+      "specifications": [
+        {
+          "label": "Volume",
+          "value": "10 mL"
+        },
+        {
+          "label": "Material",
+          "value": "Type I clear glass"
+        },
+        {
+          "label": "Neck",
+          "value": "20 mm"
+        },
+        {
+          "label": "Closure",
+          "value": "Stopper + flip-off cap"
+        },
+        {
+          "label": "Pack",
+          "value": "50 units"
+        },
+        {
+          "label": "Application",
+          "value": "Solutions / Lyophilization"
+        }
+      ]
+    },
+    {
+      "id": "vial-amber-20ml-epa",
+      "name": "Amber Vial 20 mL — EPA VOC",
+      "description": "20 mL amber vial 24-400 thread, for VOC analysis per EPA methods. Pack of 72.",
+      "longDescription": "20 mL amber vial for environmental sampling and volatile organic compound (VOC) analysis following EPA methods. 24-400 thread with certified cap and PTFE/silicone septum. Supplied precleaned.",
+      "category": "amber",
+      "status": "on-order",
+      "price": 40,
+      "currency": "EUR",
+      "dateAdded": "2026-06-15",
+      "image": "assets/images/vial-amber.svg",
+      "gallery": [
+        "assets/images/vial-amber.svg",
+        "assets/images/vial-amber-detail.svg"
+      ],
+      "specifications": [
+        {
+          "label": "Volume",
+          "value": "20 mL"
+        },
+        {
+          "label": "Material",
+          "value": "Type I amber glass"
+        },
+        {
+          "label": "Closure",
+          "value": "24-400 screw thread"
+        },
+        {
+          "label": "Certification",
+          "value": "EPA / precleaned"
+        },
+        {
+          "label": "Pack",
+          "value": "72 units"
+        },
+        {
+          "label": "Application",
+          "value": "Environmental VOC analysis"
+        }
+      ]
+    },
+    {
+      "id": "cryovial-2ml",
+      "name": "Cryovial 2 mL — PP Screw",
+      "description": "2 mL polypropylene cryovial, external thread, stable to -196 °C. Pack of 100.",
+      "longDescription": "2 mL cryovial in virgin polypropylene, with external thread and silicone sealing ring. Stable in liquid nitrogen (vapor phase) to -196 °C. Graduation and writing area for identification. Self-standing base.",
+      "category": "cryo",
+      "status": "in-stock",
+      "price": 24,
+      "currency": "EUR",
+      "dateAdded": "2026-07-28",
+      "image": "assets/images/vial-cryo.svg",
+      "gallery": [
+        "assets/images/vial-cryo.svg",
+        "assets/images/vial-cryo-detail.svg"
+      ],
+      "specifications": [
+        {
+          "label": "Volume",
+          "value": "2 mL"
+        },
+        {
+          "label": "Material",
+          "value": "Virgin polypropylene"
+        },
+        {
+          "label": "Closure",
+          "value": "External thread + O-ring"
+        },
+        {
+          "label": "Temperature",
+          "value": "-196 °C (vapor)"
+        },
+        {
+          "label": "Pack",
+          "value": "100 units"
+        },
+        {
+          "label": "Application",
+          "value": "Cryopreservation"
+        }
+      ]
+    },
+    {
+      "id": "cryovial-5ml",
+      "name": "Cryovial 5 mL — PP",
+      "description": "5 mL thick-wall cryovial for larger-volume cryopreservation. Pack of 100.",
+      "longDescription": "5 mL thick-wall polypropylene cryovial for storing larger volumes in liquid nitrogen. External thread with silicone O-ring for secure sealing. Graduated, with self-standing base.",
+      "category": "cryo",
+      "status": "out-of-stock",
+      "price": 32,
+      "currency": "EUR",
+      "dateAdded": "2026-05-20",
+      "image": "assets/images/vial-cryo.svg",
+      "gallery": [
+        "assets/images/vial-cryo.svg"
+      ],
+      "specifications": [
+        {
+          "label": "Volume",
+          "value": "5 mL"
+        },
+        {
+          "label": "Material",
+          "value": "Thick-wall polypropylene"
+        },
+        {
+          "label": "Closure",
+          "value": "External thread + O-ring"
+        },
+        {
+          "label": "Temperature",
+          "value": "-196 °C (vapor)"
+        },
+        {
+          "label": "Pack",
+          "value": "100 units"
+        },
+        {
+          "label": "Application",
+          "value": "Cryopreservation"
+        }
+      ]
+    },
+    {
+      "id": "vial-crimp-10ml",
+      "name": "Crimp Vial 10 mL — Clear",
+      "description": "20 mm crimp vial, 10 mL, clear glass. Ideal for hermetic sealing. Pack of 100.",
+      "longDescription": "20 mm crimp vial in Type I clear glass, 10 mL. Designed for hermetic sealing with aluminum cap and septum, ensuring sample integrity. Suitable for storing reagents and standards.",
+      "category": "crimp",
+      "status": "in-stock",
+      "price": 45,
+      "currency": "EUR",
+      "dateAdded": "2026-07-05",
+      "image": "assets/images/vial-crimp.svg",
+      "gallery": [
+        "assets/images/vial-crimp.svg"
+      ],
+      "specifications": [
+        {
+          "label": "Volume",
+          "value": "10 mL"
+        },
+        {
+          "label": "Material",
+          "value": "Type I clear glass"
+        },
+        {
+          "label": "Closure",
+          "value": "20 mm crimp"
+        },
+        {
+          "label": "Sealing",
+          "value": "Hermetic"
+        },
+        {
+          "label": "Pack",
+          "value": "100 units"
+        },
+        {
+          "label": "Application",
+          "value": "Reagents / Standards"
+        }
+      ]
+    },
+    {
+      "id": "vial-headspace-20ml",
+      "name": "Headspace Vial 20 mL — Crimp",
+      "description": "20 mL headspace vial, 20 mm flat neck, round bottom. For GC-HS. Pack of 100.",
+      "longDescription": "20 mL headspace vial in Type I glass, 20 mm flat neck and rounded bottom for uniform heating. Compatible with automatic headspace samplers. Crimp or magnetic cap sealing.",
+      "category": "crimp",
+      "status": "on-order",
+      "price": 48,
+      "currency": "EUR",
+      "dateAdded": "2026-06-08",
+      "image": "assets/images/vial-crimp.svg",
+      "gallery": [
+        "assets/images/vial-crimp.svg"
+      ],
+      "specifications": [
+        {
+          "label": "Volume",
+          "value": "20 mL"
+        },
+        {
+          "label": "Material",
+          "value": "Type I clear glass"
+        },
+        {
+          "label": "Closure",
+          "value": "20 mm crimp / magnetic"
+        },
+        {
+          "label": "Bottom",
+          "value": "Round"
+        },
+        {
+          "label": "Pack",
+          "value": "100 units"
+        },
+        {
+          "label": "Application",
+          "value": "GC Headspace"
+        }
+      ]
+    },
+    {
+      "id": "vial-amber-40ml-voc",
+      "name": "Amber Vial 40 mL — EPA VOC",
+      "description": "40 mL amber vial 24-400 thread with septum, for water/soil sampling. Pack of 72.",
+      "longDescription": "40 mL amber vial for water and soil sampling in VOC analysis (EPA methods 8260/524). 24-400 thread with open-top cap and PTFE/silicone septum. Supplied precleaned with lot certificate.",
+      "category": "amber",
+      "status": "in-stock",
+      "price": 55,
+      "currency": "EUR",
+      "dateAdded": "2026-07-14",
+      "image": "assets/images/vial-amber.svg",
+      "gallery": [
+        "assets/images/vial-amber.svg"
+      ],
+      "specifications": [
+        {
+          "label": "Volume",
+          "value": "40 mL"
+        },
+        {
+          "label": "Material",
+          "value": "Type I amber glass"
+        },
+        {
+          "label": "Closure",
+          "value": "24-400 thread + PTFE septum"
+        },
+        {
+          "label": "Certification",
+          "value": "EPA / precleaned"
+        },
+        {
+          "label": "Pack",
+          "value": "72 units"
+        },
+        {
+          "label": "Application",
+          "value": "Water & soil VOC"
+        }
+      ]
+    },
+    {
+      "id": "vial-scintillation-20ml",
+      "name": "Scintillation Vial 20 mL — HDPE",
+      "description": "20 mL HDPE scintillation vial with screw cap and cone liner. Pack of 100.",
+      "longDescription": "20 mL scintillation vial in high-density polyethylene (HDPE), with 22 mm screw cap and cone liner for leak-free sealing. An economical, unbreakable alternative to glass for liquid scintillation counting.",
+      "category": "clear",
+      "status": "in-stock",
+      "price": 30,
+      "currency": "EUR",
+      "dateAdded": "2026-06-22",
+      "image": "assets/images/vial-serum.svg",
+      "gallery": [
+        "assets/images/vial-serum.svg"
+      ],
+      "specifications": [
+        {
+          "label": "Volume",
+          "value": "20 mL"
+        },
+        {
+          "label": "Material",
+          "value": "HDPE"
+        },
+        {
+          "label": "Closure",
+          "value": "22 mm screw cap with cone"
+        },
+        {
+          "label": "Resistance",
+          "value": "Unbreakable"
+        },
+        {
+          "label": "Pack",
+          "value": "100 units"
+        },
+        {
+          "label": "Application",
+          "value": "Liquid scintillation"
+        }
+      ]
+    }
+  ],
+  "catalogSection": {
+    "eyebrow": "Product Catalog",
+    "title": "Laboratory Vials & Glassware",
+    "description": "Browse our range of vials, bottles and cryovials in glass and polypropylene — for chromatography, storage, environmental sampling and cryopreservation.",
+    "searchPlaceholder": "Search by volume, material, application…",
+    "loadMoreLabel": "Load More Products",
+    "emptyState": "No products match your criteria. Try adjusting the filters.",
+    "resultsLabel": "products found"
+  },
+  "ordering": {
+    "title": "How to Order",
+    "text": "Choose your products and send us a message on Telegram with the quantities. We reply with availability, shipping and payment details.",
+    "button": "Order on Telegram"
+  },
+  "footer": {
+    "copyright": "© 2026 Synvorax Labs. All rights reserved.",
+    "order": {
+      "title": "Orders",
+      "text": "Place your order directly on our Telegram.",
+      "button": "Order on Telegram"
+    },
+    "links": [
+      {
+        "label": "Catalog",
+        "href": "#catalog"
+      },
+      {
+        "label": "Order on Telegram",
+        "href": "https://t.me/synvoraxlabs"
+      }
+    ],
+    "social": [
+      {
+        "platform": "Telegram",
+        "href": "https://t.me/synvoraxlabs",
+        "icon": "telegram"
+      }
+    ]
+  },
+  "cta": {
+    "navbar": {
+      "label": "Order on Telegram",
+      "href": "https://t.me/synvoraxlabs"
+    }
+  }
+}

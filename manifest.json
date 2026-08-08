@@ -1,0 +1,26 @@
+{
+  "name": "Synvorax Labs",
+  "short_name": "Synvorax",
+  "description": "Engineering Life at Molecular Precision — Next-generation biotechnology research platform.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#00FF99",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/hero.webp",
+      "sizes": "1200x630",
+      "type": "image/webp",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["science", "medical", "business"],
+  "lang": "en"
+}
