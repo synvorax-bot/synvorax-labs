@@ -185,6 +185,22 @@
     width: 100%;
   }
 
+  .cart-drawer__panel {
+    width: 100%;
+  }
+
+  .checkout-form__row {
+    grid-template-columns: 1fr;
+  }
+
+  .checkout-actions {
+    flex-direction: column;
+  }
+
+  .product-card__footer {
+    flex-wrap: wrap;
+  }
+
   .hero__visual {
     height: 280px;
   }

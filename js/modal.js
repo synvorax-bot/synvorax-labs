@@ -67,18 +67,17 @@ const ModalManager = (() => {
           </div>
         ` : ''}
         <div class="modal__specs">
-          ${product.specifications.map(spec => `
+          ${(product.specifications || []).map(spec => `
             <div class="modal__spec">
               <div class="modal__spec-label">${spec.label}</div>
               <div class="modal__spec-value">${spec.value}</div>
             </div>
           `).join('')}
         </div>
-        ${catalog.telegram ? `
-          <a class="btn btn--primary btn--lg modal__order" href="${catalog.telegram.url}" target="_blank" rel="noopener noreferrer">
-            ${catalog.telegram.label}
-          </a>
-        ` : ''}
+        ${product.status === 'out-of-stock'
+          ? `<button class="btn btn--secondary btn--lg modal__order" type="button" disabled>${catalog.cart?.outOfStockLabel || 'Out of Stock'}</button>`
+          : `<button class="btn btn--primary btn--lg modal__order" type="button" data-add-to-cart="${product.id}">${catalog.cart?.addToCartLabel || 'Add to Cart'}</button>`
+        }
       </div>
     `;
 

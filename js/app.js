@@ -19,6 +19,7 @@ const App = (() => {
 
       try { if (window.CatalogManager) CatalogManager.init(catalog); } catch (e) { console.warn('CatalogManager:', e); }
       try { if (window.ModalManager) ModalManager.init(catalog); } catch (e) { console.warn('ModalManager:', e); }
+      try { if (window.CartManager) CartManager.init(catalog); } catch (e) { console.warn('CartManager:', e); }
 
       await waitForLibraries();
 
@@ -87,7 +88,7 @@ const App = (() => {
     renderNavbar(data);
     renderHero(data.hero);
     renderCatalogSection(data.catalogSection);
-    renderOrdering(data.ordering, data.telegram);
+    renderOrdering(data.ordering);
     renderFooter(data);
   }
 
@@ -110,10 +111,13 @@ const App = (() => {
 
     const cta = document.getElementById('nav-cta');
     cta.textContent = data.cta.navbar.label;
-    cta.href = data.cta.navbar.href;
+    cta.href = data.cta.navbar.href || '#cart';
     if (isExternal(data.cta.navbar.href)) {
       cta.target = '_blank';
       cta.rel = 'noopener noreferrer';
+    } else {
+      cta.removeAttribute('target');
+      cta.removeAttribute('rel');
     }
   }
 
@@ -141,17 +145,16 @@ const App = (() => {
     document.getElementById('load-more').textContent = section.loadMoreLabel;
   }
 
-  function renderOrdering(ordering, telegram) {
+  function renderOrdering(ordering) {
     if (!ordering) return;
     document.querySelector('.order-cta__title').textContent = ordering.title;
     document.querySelector('.order-cta__text').textContent = ordering.text;
     const btn = document.getElementById('order-cta-btn');
-    btn.textContent = ordering.button || telegram.label;
-    btn.href = telegram.url;
+    btn.textContent = ordering.button || 'Open Cart';
   }
 
   function renderFooter(data) {
-    const { footer, company, telegram } = data;
+    const { footer, company } = data;
     document.querySelector('.footer__name').textContent = company.name;
     document.querySelector('.footer__tagline').textContent = company.tagline;
     document.querySelector('.footer__copyright').textContent = footer.copyright;
@@ -160,12 +163,11 @@ const App = (() => {
     document.querySelector('.footer__order-text').textContent = footer.order.text;
     const orderBtn = document.getElementById('footer-order-btn');
     orderBtn.textContent = footer.order.button;
-    orderBtn.href = telegram.url;
 
     document.getElementById('footer-links').innerHTML = footer.links
       .map(l => `<a href="${l.href}"${isExternal(l.href) ? ' target="_blank" rel="noopener noreferrer"' : ''}>${l.label}</a>`).join('');
 
-    document.getElementById('footer-social').innerHTML = footer.social
+    document.getElementById('footer-social').innerHTML = (footer.social || [])
       .map(s => `<a href="${s.href}" target="_blank" rel="noopener noreferrer" aria-label="${s.platform}">${icon(s.icon, 18)}</a>`).join('');
   }
 
@@ -258,7 +260,7 @@ const App = (() => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', (e) => {
         const href = anchor.getAttribute('href');
-        if (href === '#') return;
+        if (href === '#' || href === '#cart') return;
         e.preventDefault();
         const target = document.querySelector(href);
         if (target) lenis.scrollTo(target, { offset: -72 });

@@ -79,7 +79,13 @@ const CatalogManager = (() => {
           </div>
           <h3 class="product-card__name">${product.name}</h3>
           <p class="product-card__desc">${product.description}</p>
-          ${price ? `<div class="product-card__price">${price}</div>` : ''}
+          <div class="product-card__footer">
+            ${price ? `<div class="product-card__price">${price}</div>` : '<span></span>'}
+            ${product.status === 'out-of-stock'
+              ? `<button type="button" class="btn btn--secondary btn--sm" disabled>${catalog.cart?.outOfStockLabel || 'Out of Stock'}</button>`
+              : `<button type="button" class="btn btn--primary btn--sm" data-add-to-cart="${product.id}">${catalog.cart?.addToCartLabel || 'Add to Cart'}</button>`
+            }
+          </div>
         </div>
       </article>
     `;
