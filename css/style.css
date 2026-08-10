@@ -1025,8 +1025,23 @@ ul, ol {
   line-height: 1.6;
 }
 
-.order-cta__btn {
+.order-cta__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
   flex-shrink: 0;
+}
+
+.order-cta__btn,
+.order-cta__telegram {
+  width: 100%;
+  justify-content: center;
+}
+
+.footer__order-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
 }
 
 .modal__order {

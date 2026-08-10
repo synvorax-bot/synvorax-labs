@@ -88,7 +88,7 @@ const App = (() => {
     renderNavbar(data);
     renderHero(data.hero);
     renderCatalogSection(data.catalogSection);
-    renderOrdering(data.ordering);
+    renderOrdering(data.ordering, data.telegram);
     renderFooter(data);
   }
 
@@ -145,16 +145,25 @@ const App = (() => {
     document.getElementById('load-more').textContent = section.loadMoreLabel;
   }
 
-  function renderOrdering(ordering) {
+  function renderOrdering(ordering, telegram) {
     if (!ordering) return;
     document.querySelector('.order-cta__title').textContent = ordering.title;
     document.querySelector('.order-cta__text').textContent = ordering.text;
     const btn = document.getElementById('order-cta-btn');
     btn.textContent = ordering.button || 'Open Cart';
+
+    const tgBtn = document.getElementById('order-cta-telegram');
+    if (tgBtn && telegram) {
+      tgBtn.textContent = ordering.telegramButton || telegram.label || 'Questions on Telegram';
+      tgBtn.href = telegram.url;
+      tgBtn.hidden = false;
+    } else if (tgBtn) {
+      tgBtn.hidden = true;
+    }
   }
 
   function renderFooter(data) {
-    const { footer, company } = data;
+    const { footer, company, telegram } = data;
     document.querySelector('.footer__name').textContent = company.name;
     document.querySelector('.footer__tagline').textContent = company.tagline;
     document.querySelector('.footer__copyright').textContent = footer.copyright;
@@ -163,6 +172,15 @@ const App = (() => {
     document.querySelector('.footer__order-text').textContent = footer.order.text;
     const orderBtn = document.getElementById('footer-order-btn');
     orderBtn.textContent = footer.order.button;
+
+    const footerTg = document.getElementById('footer-telegram-btn');
+    if (footerTg && telegram) {
+      footerTg.textContent = footer.order.telegramButton || telegram.label || 'Questions on Telegram';
+      footerTg.href = telegram.url;
+      footerTg.hidden = false;
+    } else if (footerTg) {
+      footerTg.hidden = true;
+    }
 
     document.getElementById('footer-links').innerHTML = footer.links
       .map(l => `<a href="${l.href}"${isExternal(l.href) ? ' target="_blank" rel="noopener noreferrer"' : ''}>${l.label}</a>`).join('');

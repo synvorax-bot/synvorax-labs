@@ -181,7 +181,12 @@
     gap: var(--space-lg);
   }
 
-  .order-cta__btn {
+  .order-cta__actions {
+    width: 100%;
+  }
+
+  .order-cta__btn,
+  .order-cta__telegram {
     width: 100%;
   }
 
