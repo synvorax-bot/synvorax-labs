@@ -72,34 +72,9 @@
       "color": "#00D67F"
     },
     {
-      "id": "hormones",
-      "label": "Hormones & TRT",
-      "color": "#18E38A"
-    },
-    {
       "id": "performance",
       "label": "Performance",
       "color": "#00FF99"
-    },
-    {
-      "id": "support",
-      "label": "Hormonal Support",
-      "color": "#00D67F"
-    },
-    {
-      "id": "hair",
-      "label": "Hair Care",
-      "color": "#18E38A"
-    },
-    {
-      "id": "recovery",
-      "label": "Sleep & Recovery",
-      "color": "#00FF99"
-    },
-    {
-      "id": "pain",
-      "label": "Pain Management",
-      "color": "#00D67F"
     }
   ],
   "statuses": [
