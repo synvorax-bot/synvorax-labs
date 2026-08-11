@@ -16,9 +16,19 @@ const ModalManager = (() => {
     modal.querySelector('.modal__close').addEventListener('click', close);
     modal.querySelector('.modal__backdrop').addEventListener('click', close);
 
+    modal.addEventListener('wheel', blockBackgroundScroll, { passive: false });
+    modal.addEventListener('touchmove', blockBackgroundScroll, { passive: false });
+
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && modal.classList.contains('active')) close();
     });
+  }
+
+  function blockBackgroundScroll(event) {
+    if (!modal.classList.contains('active')) return;
+    if (event.target.closest('.modal__container')) {
+      event.stopPropagation();
+    }
   }
 
   function getStatusInfo(statusId) {
@@ -85,6 +95,9 @@ const ModalManager = (() => {
     modal.classList.add('active');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    if (window.ScrollManager && typeof window.ScrollManager.pause === 'function') {
+      window.ScrollManager.pause();
+    }
 
     if (window.Animations) {
       Animations.openModal(container);
@@ -114,6 +127,9 @@ const ModalManager = (() => {
       modal.classList.remove('active');
       modal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      if (window.ScrollManager && typeof window.ScrollManager.resume === 'function') {
+        window.ScrollManager.resume();
+      }
       currentProduct = null;
     };
 

@@ -40,6 +40,14 @@ const CartManager = (() => {
     return first?.currency || 'EUR';
   }
 
+  function normalizeItems() {
+    const valid = items.filter(line => getProduct(line.id));
+    if (valid.length !== items.length) {
+      items = valid;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+    }
+  }
+
   function subtotal() {
     return items.reduce((sum, line) => {
       const product = getProduct(line.id);
@@ -49,7 +57,11 @@ const CartManager = (() => {
   }
 
   function count() {
-    return items.reduce((sum, line) => sum + line.qty, 0);
+    return items.reduce((sum, line) => {
+      const product = getProduct(line.id);
+      if (!product) return sum;
+      return sum + line.qty;
+    }, 0);
   }
 
   function add(productId, qty = 1) {
@@ -356,13 +368,15 @@ const CartManager = (() => {
         if (add(id)) {
           const label = catalog.cart?.addedLabel || 'Added';
           const original = addBtn.dataset.label || addBtn.textContent;
+          const fromModal = Boolean(addBtn.closest('#modal'));
           addBtn.dataset.label = original;
           addBtn.textContent = label;
           addBtn.classList.add('is-added');
           setTimeout(() => {
             addBtn.textContent = original;
             addBtn.classList.remove('is-added');
-          }, 1200);
+            if (fromModal && window.ModalManager) ModalManager.close();
+          }, fromModal ? 600 : 1200);
         }
       }
     });
@@ -405,6 +419,7 @@ const CartManager = (() => {
   function init(data) {
     catalog = data;
     items = load();
+    normalizeItems();
     drawer = document.getElementById('cart-drawer');
     if (!drawer) return;
 

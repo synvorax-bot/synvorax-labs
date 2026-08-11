@@ -1360,6 +1360,7 @@ ul, ol {
   opacity: 0;
   visibility: hidden;
   transition: opacity var(--transition-base), visibility var(--transition-base);
+  overscroll-behavior: contain;
 }
 
 .modal.active {
@@ -1380,6 +1381,7 @@ ul, ol {
   max-width: 900px;
   max-height: 90vh;
   overflow-y: auto;
+  overscroll-behavior: contain;
   background: var(--bg-secondary);
   border: 1px solid var(--border-glass);
   border-radius: var(--radius-xl);
