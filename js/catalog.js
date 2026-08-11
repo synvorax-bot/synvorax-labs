@@ -142,12 +142,16 @@ const CatalogManager = (() => {
         if (product && window.ModalManager) ModalManager.open(product);
       };
 
-      card.addEventListener('click', open);
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('button, a')) return;
+        open();
+      });
+
       card.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          open();
-        }
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        if (e.target.closest('button, a')) return;
+        e.preventDefault();
+        open();
       });
     });
   }
