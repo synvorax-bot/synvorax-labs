@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" fill="none">
+  <defs>
+    <linearGradient id="bgs" x1="0" y1="0" x2="400" y2="250" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0a0f0c"/><stop offset="1" stop-color="#051510"/>
+    </linearGradient>
+    <linearGradient id="glasss" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#d7fff0" stop-opacity="0.32"/><stop offset="1" stop-color="#00FF99" stop-opacity="0.12"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="250" fill="url(#bgs)"/>
+  <ellipse cx="200" cy="135" rx="120" ry="80" fill="#00FF99" opacity="0.06"/>
+  <g transform="translate(200,0)">
+    <rect x="-20" y="44" width="40" height="10" rx="3" fill="#c9d2cf"/>
+    <rect x="-16" y="54" width="32" height="8" fill="#8f9a97" opacity="0.7"/>
+    <path d="M-30 62 h60 v96 a24 24 0 0 1 -24 24 h-12 a24 24 0 0 1 -24 -24 z" fill="url(#glasss)" stroke="#00FF99" stroke-width="1.5" stroke-opacity="0.6"/>
+    <rect x="-30" y="140" width="60" height="34" fill="#00FF99" opacity="0.12"/>
+    <line x1="18" y1="78" x2="18" y2="170" stroke="#ffffff" stroke-opacity="0.22" stroke-width="2"/>
+  </g>
+  <text x="200" y="235" text-anchor="middle" fill="#00FF99" font-family="Inter,sans-serif" font-size="11" font-weight="600" opacity="0.75">SERUM VIAL 10 mL</text>
+</svg>
