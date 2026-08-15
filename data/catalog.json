@@ -131,9 +131,11 @@
       "price": 160,
       "currency": "EUR",
       "dateAdded": "2026-08-08",
-      "image": "assets/images/tirzpen.png",
+      "image": "assets/images/tirzpen1.png",
       "gallery": [
-        "assets/images/tirzpen.png"
+        "assets/images/tirzpen1.png",
+        "assets/images/tirzpen2.png",
+        "assets/images/tirzpen3.png"
       ],
       "specifications": [
         {
@@ -172,9 +174,11 @@
       "price": 80,
       "currency": "EUR",
       "dateAdded": "2026-08-08",
-      "image": "assets/images/ghkcupen.png",
+      "image": "assets/images/ghkcupen1.png",
       "gallery": [
-        "assets/images/ghkcupen.png"
+        "assets/images/ghkcupen1.png",
+        "assets/images/ghkcupen2.png",
+        "assets/images/ghkcupen3.png"
       ],
       "specifications": [
         {
