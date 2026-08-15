@@ -11,9 +11,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=16">
-  <link rel="stylesheet" href="css/animations.css?v=16">
-  <link rel="stylesheet" href="css/responsive.css?v=16">
+  <link rel="stylesheet" href="css/style.css?v=20">
+  <link rel="stylesheet" href="css/animations.css?v=18">
+  <link rel="stylesheet" href="css/responsive.css?v=19">
   <!-- SEO meta injected by app.js -->
   <script id="seo-placeholder"></script>
 </head>
@@ -186,9 +186,30 @@
           <p id="cart-empty" class="cart-empty" data-cart-empty hidden></p>
           <div id="cart-items" class="cart-items"></div>
           <div id="cart-footer" class="cart-footer" hidden>
-            <div class="cart-subtotal">
-              <span data-cart-subtotal-label>Subtotal</span>
-              <strong id="cart-subtotal">€0.00</strong>
+            <div class="cart-totals">
+              <div class="cart-totals__row">
+                <span data-cart-subtotal-label>Subtotal</span>
+                <strong id="cart-subtotal">€0.00</strong>
+              </div>
+              <div class="cart-totals__row cart-totals__shipping" id="cart-shipping-row">
+                <span>
+                  <span data-cart-shipping-label>Delivery</span>
+                  <small id="cart-shipping-detail"></small>
+                </span>
+                <strong id="cart-shipping">€0.00</strong>
+              </div>
+            <div class="cart-totals__row cart-totals__discount" id="cart-discount-row" hidden>
+              <span>
+                <span data-cart-discount-label>Discount</span>
+                <small id="cart-discount-detail"></small>
+              </span>
+              <strong id="cart-discount">−€0.00</strong>
+            </div>
+            <p class="cart-totals__note" id="cart-shipping-note"></p>
+              <div class="cart-totals__row cart-totals__grand">
+                <span data-cart-total-label>Total</span>
+                <strong id="cart-total">€0.00</strong>
+              </div>
             </div>
             <button type="button" id="cart-to-checkout" class="btn btn--primary btn--lg">Checkout</button>
           </div>
@@ -199,6 +220,15 @@
           <p class="checkout-subtitle" data-checkout-subtitle></p>
           <ul id="checkout-summary" class="checkout-summary"></ul>
           <form id="checkout-form" class="checkout-form">
+            <div class="coupon-box">
+              <span data-field="coupon">Discount code</span>
+              <div class="coupon-box__row">
+                <input id="coupon-input" type="text" name="coupon" autocomplete="off" spellcheck="false" maxlength="24">
+                <button type="button" id="coupon-apply" class="btn btn--secondary">Apply</button>
+                <button type="button" id="coupon-remove" class="btn btn--secondary" hidden>Remove</button>
+              </div>
+              <p id="coupon-message" class="coupon-box__message" hidden></p>
+            </div>
             <label><span data-field="fullName">Full name</span><input name="fullName" required autocomplete="name"></label>
             <label><span data-field="email">Email</span><input type="email" name="email" required autocomplete="email"></label>
             <label><span data-field="phone">Phone</span><input type="tel" name="phone" required autocomplete="tel"></label>
@@ -227,6 +257,24 @@
     </aside>
   </div>
 
+  <!-- Welcome offer -->
+  <div id="welcome-modal" class="welcome" aria-hidden="true">
+    <div class="welcome__backdrop" data-welcome-close></div>
+    <div class="welcome__card" role="dialog" aria-modal="true" aria-labelledby="welcome-title">
+      <button type="button" class="welcome__close" data-welcome-close aria-label="Close">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <span class="eyebrow" id="welcome-eyebrow">Welcome offer</span>
+      <h2 id="welcome-title">10% off your first order</h2>
+      <p id="welcome-text">Use this code at checkout to apply your welcome discount.</p>
+      <button type="button" class="welcome__code" id="welcome-code" aria-label="Copy discount code">
+        <span id="welcome-code-value">WELCOME10</span>
+        <small id="welcome-code-hint">Click to copy</small>
+      </button>
+      <button type="button" class="btn btn--primary" id="welcome-cta" data-welcome-close>Start shopping</button>
+    </div>
+  </div>
+
   <!-- External Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
@@ -235,12 +283,12 @@
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
 
   <!-- App Scripts -->
-  <script src="js/background.js?v=16" defer></script>
-  <script src="js/animations.js?v=16" defer></script>
-  <script src="js/modal.js?v=16" defer></script>
-  <script src="js/search.js?v=16" defer></script>
-  <script src="js/catalog.js?v=16" defer></script>
-  <script src="js/cart.js?v=16" defer></script>
-  <script src="js/app.js?v=16" defer></script>
+  <script src="js/background.js?v=18" defer></script>
+  <script src="js/animations.js?v=18" defer></script>
+  <script src="js/modal.js?v=18" defer></script>
+  <script src="js/search.js?v=18" defer></script>
+  <script src="js/catalog.js?v=18" defer></script>
+  <script src="js/cart.js?v=20" defer></script>
+  <script src="js/app.js?v=19" defer></script>
 </body>
 </html>

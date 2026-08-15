@@ -226,6 +226,14 @@
     flex-direction: column;
   }
 
+  .welcome {
+    padding: var(--space-md);
+  }
+
+  .welcome__card {
+    padding: 1.8rem 1.3rem 1.4rem;
+  }
+
   .gradient-orb--1 {
     width: 300px;
     height: 300px;

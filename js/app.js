@@ -33,6 +33,7 @@ const App = (() => {
 
       initSmoothScroll();
       await finishLoader();
+      initWelcome(catalog);
     } catch (err) {
       console.error('Failed to initialize:', err);
       hideLoader();
@@ -335,6 +336,61 @@ const App = (() => {
 
   function hideLoader() {
     document.getElementById('loader').classList.add('hidden');
+  }
+
+  function initWelcome(data) {
+    const copy = data.welcome || {};
+    const key = copy.storageKey || 'synvorax-welcome-v1';
+    const modal = document.getElementById('welcome-modal');
+    if (!modal || !copy.code) return;
+
+    try {
+      if (localStorage.getItem(key)) return;
+    } catch {
+      return;
+    }
+
+    const setText = (id, value) => {
+      const el = document.getElementById(id);
+      if (el && value) el.textContent = value;
+    };
+
+    setText('welcome-eyebrow', copy.eyebrow);
+    setText('welcome-title', copy.title);
+    setText('welcome-text', copy.text);
+    setText('welcome-code-value', copy.code);
+    setText('welcome-code-hint', copy.copyHint);
+    setText('welcome-cta', copy.button);
+
+    const dismiss = () => {
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      try { localStorage.setItem(key, '1'); } catch { /* ignore */ }
+    };
+
+    modal.querySelectorAll('[data-welcome-close]').forEach(el => {
+      el.addEventListener('click', dismiss);
+    });
+
+    document.getElementById('welcome-code')?.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(copy.code);
+        setText('welcome-code-hint', copy.copiedHint || 'Copied');
+      } catch {
+        setText('welcome-code-hint', copy.code);
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) dismiss();
+    });
+
+    requestAnimationFrame(() => {
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    });
   }
 
   function waitForLibraries() {

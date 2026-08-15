@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#050505">
+  <title>Orders — Synvorax Labs</title>
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css?v=2">
+</head>
+<body>
+  <div id="login" class="login" hidden>
+    <form class="login__card" id="login-form">
+      <img src="assets/logo.svg" alt="" width="44" height="44">
+      <h1>Orders Backoffice</h1>
+      <p>Enter your access token to continue.</p>
+      <input type="password" id="token-input" placeholder="Access token" autocomplete="current-password" required>
+      <p class="login__error" id="login-error" hidden></p>
+      <button type="submit" class="btn btn--primary">Sign in</button>
+    </form>
+  </div>
+
+  <div id="app" class="app" hidden>
+    <header class="topbar">
+      <div class="topbar__brand">
+        <img src="assets/logo.svg" alt="" width="28" height="28">
+        <span>Orders</span>
+      </div>
+      <div class="topbar__actions">
+        <button type="button" id="refresh" class="btn btn--ghost">Refresh</button>
+        <button type="button" id="logout" class="btn btn--ghost">Sign out</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="stats" id="stats"></section>
+
+      <section class="toolbar">
+        <input type="search" id="search" placeholder="Search by order, name or email…" autocomplete="off">
+        <div class="filters" id="status-filters"></div>
+      </section>
+
+      <p class="feedback" id="feedback" hidden></p>
+
+      <section class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Order</th>
+              <th>Customer</th>
+              <th>Total</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="orders-body"></tbody>
+        </table>
+        <p class="empty" id="empty" hidden>No orders match your filters.</p>
+      </section>
+
+      <section class="coupons">
+        <div class="section-head">
+          <h2>Coupons</h2>
+          <p>Codes are stored in Google Sheets and validated on the server. They never live in the public catalog.</p>
+        </div>
+
+        <form id="coupon-form" class="coupon-form">
+          <input name="code" placeholder="Code (e.g. WELCOME10)" maxlength="24" autocomplete="off" spellcheck="false" required>
+          <select name="type">
+            <option value="percent">Percent %</option>
+            <option value="fixed">Fixed €</option>
+          </select>
+          <input name="value" type="number" min="0.01" step="0.01" placeholder="Value" required>
+          <input name="minSubtotal" type="number" min="0" step="0.01" placeholder="Min. order €">
+          <input name="maxUses" type="number" min="0" step="1" placeholder="Max uses (0 = unlimited)">
+          <input name="expires" type="date">
+          <input name="note" placeholder="Internal note">
+          <button type="submit" class="btn btn--primary">Create coupon</button>
+        </form>
+
+        <section class="table-wrap">
+          <table class="table table--static">
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Discount</th>
+                <th>Min. order</th>
+                <th>Uses</th>
+                <th>Expires</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="coupons-body"></tbody>
+          </table>
+          <p class="empty" id="coupons-empty" hidden>No coupons yet.</p>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <div id="detail" class="detail" aria-hidden="true">
+    <div class="detail__backdrop"></div>
+    <aside class="detail__panel" role="dialog" aria-modal="true" aria-labelledby="detail-title">
+      <header class="detail__header">
+        <h2 id="detail-title">Order</h2>
+        <button type="button" class="btn btn--ghost detail__close" aria-label="Close">✕</button>
+      </header>
+      <div class="detail__body" id="detail-body"></div>
+    </aside>
+  </div>
+
+  <script src="js/admin.js?v=3" defer></script>
+</body>
+</html>

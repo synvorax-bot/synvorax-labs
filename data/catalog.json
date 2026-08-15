@@ -1,17 +1,17 @@
 {
   "company": {
     "name": "Synvorax Labs",
-    "tagline": "Laboratory Vials & Glassware",
-    "description": "Supplier of laboratory vials, bottles and cryovials in glass and polypropylene.",
-    "founded": 2019,
+    "tagline": "Premium Peptides & Pharmaceutical Products",
+    "description": "Supplier of premium peptide pens and carefully selected pharmaceutical products with quality-focused sourcing.",
+    "founded": 2025,
     "headquarters": "",
-    "email": "synvorax@gmail.com",
+    "email": "",
     "phone": ""
   },
   "seo": {
-    "title": "Synvorax Labs — Laboratory Vials & Glassware Catalog",
-    "description": "Catalog of laboratory vials, bottles and cryovials with prices. Add to cart and checkout online.",
-    "keywords": "vials, bottles, cryovials, glassware, laboratory, HPLC, autosampler, amber, borosilicate",
+    "title": "Synvorax Labs | Premium Peptides & Pharmaceutical Products",
+    "description": "Premium peptide pens and selected pharmaceutical products including Tirzepatide, Retatrutide, GHK-Cu, Testosterone, HCG, Tadalafil, Melatonin and more.",
+    "keywords": "Synvorax Labs, peptides, tirzepatide, retatrutide, ghk-cu, testosterone enanthate, tadalafil, hcg, melatonin, pharmaceutical products",
     "url": "https://synvoraxlabs.com",
     "ogImage": "assets/hero.webp",
     "twitterHandle": "@synvoraxlabs"
@@ -19,7 +19,7 @@
   "telegram": {
     "url": "https://t.me/synvoraxlabs",
     "handle": "@synvoraxlabs",
-    "label": "Questions on Telegram"
+    "label": "Order on Telegram"
   },
   "theme": {
     "default": "dark",
@@ -42,13 +42,13 @@
     }
   ],
   "hero": {
-    "eyebrow": "Laboratory Supplies",
-    "headline": "Laboratory Vials",
-    "headlineAccent": "& Glassware",
-    "description": "Vials, bottles and cryovials in borosilicate glass and polypropylene — for chromatography, storage, sampling and cryopreservation. Add items to your cart and checkout in minutes. Questions? Message us on Telegram.",
+    "eyebrow": "Premium Quality",
+    "headline": "Peptides &",
+    "headlineAccent": "Pharmaceuticals",
+    "description": "Explore our selection of premium peptide pens and carefully sourced pharmaceutical products. Quality-focused sourcing, transparent documentation and international delivery. Add items to your cart and checkout in minutes. Questions? Message us on Telegram.",
     "buttons": [
       {
-        "label": "View Catalog",
+        "label": "Browse Products",
         "href": "#catalog",
         "variant": "primary"
       },
@@ -67,29 +67,14 @@
       "color": "#00FF99"
     },
     {
-      "id": "clear",
-      "label": "Clear Glass",
+      "id": "peptides",
+      "label": "Peptides",
       "color": "#00D67F"
     },
     {
-      "id": "amber",
-      "label": "Amber Glass",
-      "color": "#18E38A"
-    },
-    {
-      "id": "autosampler",
-      "label": "Autosampler HPLC/GC",
+      "id": "performance",
+      "label": "Performance",
       "color": "#00FF99"
-    },
-    {
-      "id": "crimp",
-      "label": "Crimp / Headspace",
-      "color": "#00D67F"
-    },
-    {
-      "id": "cryo",
-      "label": "Cryogenic",
-      "color": "#18E38A"
     }
   ],
   "statuses": [
@@ -120,15 +105,15 @@
     },
     {
       "id": "alphabetical",
-      "label": "A ÔåÆ Z"
+      "label": "A → Z"
     },
     {
       "id": "price-asc",
-      "label": "Price: Low ÔåÆ High"
+      "label": "Price: Low → High"
     },
     {
       "id": "price-desc",
-      "label": "Price: High ÔåÆ Low"
+      "label": "Price: High → Low"
     },
     {
       "id": "status",
@@ -137,509 +122,177 @@
   ],
   "products": [
     {
-      "id": "vial-clear-2ml-screw",
-      "name": "Clear Glass Vial 2 mL — Screw Top",
-      "description": "Clear Type I borosilicate glass vial, 2 mL, 8-425 thread. Pack of 100 units.",
-      "longDescription": "Screw-top vial in low-extractable Type I borosilicate glass, ideal for sample storage and chromatography. Compatible with 8-425 screw caps with PTFE/silicone septa. Neutral inner surface that minimizes compound adsorption.",
-      "category": "clear",
+      "id": "tirz40",
+      "name": "Tirzepatide Pen 40 mg",
+      "description": "40 mg multi-dose peptide pen.",
+      "longDescription": "Premium Tirzepatide peptide pen.",
+      "category": "peptides",
       "status": "in-stock",
-      "price": 18,
+      "price": 160,
       "currency": "EUR",
-      "dateAdded": "2026-07-20",
-      "image": "assets/images/vial-clear.svg",
+      "dateAdded": "2026-08-08",
+      "image": "assets/images/tirzpen.png",
       "gallery": [
-        "assets/images/vial-clear.svg",
-        "assets/images/vial-clear-detail.svg"
+        "assets/images/tirzpen.png"
       ],
       "specifications": [
         {
-          "label": "Volume",
-          "value": "2 mL"
+          "label": "Packaging",
+          "value": "Pen"
         },
         {
-          "label": "Material",
-          "value": "Type I borosilicate glass"
+          "label": "Availability",
+          "value": "In Stock"
         },
         {
-          "label": "Closure",
-          "value": "8-425 screw thread"
+          "label": "Currency",
+          "value": "EUR"
         },
         {
-          "label": "Color",
-          "value": "Clear"
+          "label": "COA",
+          "value": "Available on request"
         },
         {
-          "label": "Pack",
-          "value": "100 units"
+          "label": "Shipping",
+          "value": "International"
         },
         {
-          "label": "Application",
-          "value": "Storage / HPLC"
+          "label": "Brand",
+          "value": "Synvorax Labs"
         }
       ]
     },
     {
-      "id": "vial-amber-2ml-screw",
-      "name": "Amber Glass Vial 2 mL — Screw Top",
-      "description": "Amber 2 mL vial with UV protection for light-sensitive samples. 8-425 thread. Pack of 100.",
-      "longDescription": "Type I amber glass vial that blocks up to 99% of UV radiation, protecting light-sensitive compounds. 8-425 thread compatible with PTFE/silicone septa. Recommended for long-term samples and light-sensitive analyses.",
-      "category": "amber",
+      "id": "ghk100",
+      "name": "GHK-Cu Pen 100 mg",
+      "description": "100 mg multi-dose peptide pen.",
+      "longDescription": "Premium GHK-Cu peptide pen.",
+      "category": "peptides",
       "status": "in-stock",
-      "price": 22,
+      "price": 80,
       "currency": "EUR",
-      "dateAdded": "2026-07-18",
-      "image": "assets/images/vial-amber.svg",
+      "dateAdded": "2026-08-08",
+      "image": "assets/images/ghkcupen.png",
       "gallery": [
-        "assets/images/vial-amber.svg",
-        "assets/images/vial-amber-detail.svg"
+        "assets/images/ghkcupen.png"
       ],
       "specifications": [
         {
-          "label": "Volume",
-          "value": "2 mL"
+          "label": "Packaging",
+          "value": "Pen"
         },
         {
-          "label": "Material",
-          "value": "Type I amber borosilicate glass"
+          "label": "Availability",
+          "value": "In Stock"
         },
         {
-          "label": "Closure",
-          "value": "8-425 screw thread"
+          "label": "Currency",
+          "value": "EUR"
         },
         {
-          "label": "UV Protection",
-          "value": "ÔëÑ99%"
+          "label": "COA",
+          "value": "Available on request"
         },
         {
-          "label": "Pack",
-          "value": "100 units"
+          "label": "Shipping",
+          "value": "International"
         },
         {
-          "label": "Application",
-          "value": "Light-sensitive samples"
+          "label": "Brand",
+          "value": "Synvorax Labs"
         }
       ]
     },
     {
-      "id": "vial-autosampler-crimp",
-      "name": "Autosampler Vial 1.5 mL — Crimp",
-      "description": "HPLC/GC crimp vial 11 mm, 1.5 mL, clear glass. Pack of 100.",
-      "longDescription": "11 mm crimp vial for HPLC and GC autosamplers. High-purity clear glass with flat bottom for consistent optical reading. Compatible with 11 mm aluminum caps and PTFE/rubber septa.",
-      "category": "autosampler",
+      "id": "tad5",
+      "name": "Tadalafil 5 mg",
+      "description": "10 tablets per blister strip.",
+      "longDescription": "Tadalafil tablets.",
+      "category": "performance",
       "status": "in-stock",
-      "price": 28,
+      "price": 10,
       "currency": "EUR",
-      "dateAdded": "2026-07-25",
-      "image": "assets/images/vial-autosampler.svg",
+      "dateAdded": "2026-08-08",
+      "image": "assets/images/vidalista-5-mg-tablets.jpg",
       "gallery": [
-        "assets/images/vial-autosampler.svg"
+        "assets/images/vidalista-5-mg-tablets.jpg"
       ],
       "specifications": [
         {
-          "label": "Volume",
-          "value": "1.5 mL"
+          "label": "Packaging",
+          "value": "Price per 1 blister stripe - 10 tablets"
         },
         {
-          "label": "Material",
-          "value": "Type I clear glass"
+          "label": "Availability",
+          "value": "In Stock"
         },
         {
-          "label": "Closure",
-          "value": "11 mm crimp"
+          "label": "Currency",
+          "value": "EUR"
         },
         {
-          "label": "Bottom",
-          "value": "Flat"
+          "label": "COA",
+          "value": "N/A"
         },
         {
-          "label": "Pack",
-          "value": "100 units"
+          "label": "Shipping",
+          "value": "International"
         },
         {
-          "label": "Application",
-          "value": "HPLC/GC autosampler"
+          "label": "Brand",
+          "value": "Centurion Laboratories"
         }
       ]
     },
     {
-      "id": "vial-autosampler-snap",
-      "name": "Autosampler Vial 1.5 mL — Snap Cap",
-      "description": "Snap-cap 1.5 mL vial for autosampler. Easy filling. Pack of 100.",
-      "longDescription": "1.5 mL snap-cap vial for high throughput in autosamplers. Wide opening that makes pipette filling easier. Polypropylene cap with pre-assembled septum available separately.",
-      "category": "autosampler",
-      "status": "on-order",
-      "price": 26,
-      "currency": "EUR",
-      "dateAdded": "2026-06-30",
-      "image": "assets/images/vial-autosampler.svg",
-      "gallery": [
-        "assets/images/vial-autosampler.svg"
-      ],
-      "specifications": [
-        {
-          "label": "Volume",
-          "value": "1.5 mL"
-        },
-        {
-          "label": "Material",
-          "value": "Type I clear glass"
-        },
-        {
-          "label": "Closure",
-          "value": "11 mm snap cap"
-        },
-        {
-          "label": "Opening",
-          "value": "Wide"
-        },
-        {
-          "label": "Pack",
-          "value": "100 units"
-        },
-        {
-          "label": "Application",
-          "value": "HPLC autosampler"
-        }
-      ]
-    },
-    {
-      "id": "vial-serum-10ml",
-      "name": "Serum Vial 10 mL — Clear",
-      "description": "10 mL clear glass serum vial, 20 mm neck for flip-off cap. Pack of 50.",
-      "longDescription": "10 mL Type I glass serum vial, 20 mm neck compatible with rubber stoppers and aluminum flip-off caps. Uniform walls and stable base for lyophilization and solution storage.",
-      "category": "clear",
+      "id": "tad10",
+      "name": "Tadalafil 10 mg",
+      "description": "10 tablets per box.",
+      "longDescription": "Tadalafil tablets.",
+      "category": "performance",
       "status": "in-stock",
-      "price": 35,
+      "price": 15,
       "currency": "EUR",
-      "dateAdded": "2026-07-10",
-      "image": "assets/images/vial-serum.svg",
+      "dateAdded": "2026-08-08",
+      "image": "assets/images/vidalista-10-mg-tablets.jfif",
       "gallery": [
-        "assets/images/vial-serum.svg"
+        "assets/images/vidalista-10-mg-tablets.jfif"
       ],
       "specifications": [
         {
-          "label": "Volume",
-          "value": "10 mL"
+          "label": "Packaging",
+          "value": "Price per 1 blister stripe - 10 tablets"
         },
         {
-          "label": "Material",
-          "value": "Type I clear glass"
+          "label": "Availability",
+          "value": "In Stock"
         },
         {
-          "label": "Neck",
-          "value": "20 mm"
+          "label": "Currency",
+          "value": "EUR"
         },
         {
-          "label": "Closure",
-          "value": "Stopper + flip-off cap"
+          "label": "COA",
+          "value": "N/A"
         },
         {
-          "label": "Pack",
-          "value": "50 units"
+          "label": "Shipping",
+          "value": "International"
         },
         {
-          "label": "Application",
-          "value": "Solutions / Lyophilization"
-        }
-      ]
-    },
-    {
-      "id": "vial-amber-20ml-epa",
-      "name": "Amber Vial 20 mL — EPA VOC",
-      "description": "20 mL amber vial 24-400 thread, for VOC analysis per EPA methods. Pack of 72.",
-      "longDescription": "20 mL amber vial for environmental sampling and volatile organic compound (VOC) analysis following EPA methods. 24-400 thread with certified cap and PTFE/silicone septum. Supplied precleaned.",
-      "category": "amber",
-      "status": "on-order",
-      "price": 40,
-      "currency": "EUR",
-      "dateAdded": "2026-06-15",
-      "image": "assets/images/vial-amber.svg",
-      "gallery": [
-        "assets/images/vial-amber.svg",
-        "assets/images/vial-amber-detail.svg"
-      ],
-      "specifications": [
-        {
-          "label": "Volume",
-          "value": "20 mL"
-        },
-        {
-          "label": "Material",
-          "value": "Type I amber glass"
-        },
-        {
-          "label": "Closure",
-          "value": "24-400 screw thread"
-        },
-        {
-          "label": "Certification",
-          "value": "EPA / precleaned"
-        },
-        {
-          "label": "Pack",
-          "value": "72 units"
-        },
-        {
-          "label": "Application",
-          "value": "Environmental VOC analysis"
-        }
-      ]
-    },
-    {
-      "id": "cryovial-2ml",
-      "name": "Cryovial 2 mL — PP Screw",
-      "description": "2 mL polypropylene cryovial, external thread, stable to -196 ┬░C. Pack of 100.",
-      "longDescription": "2 mL cryovial in virgin polypropylene, with external thread and silicone sealing ring. Stable in liquid nitrogen (vapor phase) to -196 ┬░C. Graduation and writing area for identification. Self-standing base.",
-      "category": "cryo",
-      "status": "in-stock",
-      "price": 24,
-      "currency": "EUR",
-      "dateAdded": "2026-07-28",
-      "image": "assets/images/vial-cryo.svg",
-      "gallery": [
-        "assets/images/vial-cryo.svg",
-        "assets/images/vial-cryo-detail.svg"
-      ],
-      "specifications": [
-        {
-          "label": "Volume",
-          "value": "2 mL"
-        },
-        {
-          "label": "Material",
-          "value": "Virgin polypropylene"
-        },
-        {
-          "label": "Closure",
-          "value": "External thread + O-ring"
-        },
-        {
-          "label": "Temperature",
-          "value": "-196 ┬░C (vapor)"
-        },
-        {
-          "label": "Pack",
-          "value": "100 units"
-        },
-        {
-          "label": "Application",
-          "value": "Cryopreservation"
-        }
-      ]
-    },
-    {
-      "id": "cryovial-5ml",
-      "name": "Cryovial 5 mL — PP",
-      "description": "5 mL thick-wall cryovial for larger-volume cryopreservation. Pack of 100.",
-      "longDescription": "5 mL thick-wall polypropylene cryovial for storing larger volumes in liquid nitrogen. External thread with silicone O-ring for secure sealing. Graduated, with self-standing base.",
-      "category": "cryo",
-      "status": "out-of-stock",
-      "price": 32,
-      "currency": "EUR",
-      "dateAdded": "2026-05-20",
-      "image": "assets/images/vial-cryo.svg",
-      "gallery": [
-        "assets/images/vial-cryo.svg"
-      ],
-      "specifications": [
-        {
-          "label": "Volume",
-          "value": "5 mL"
-        },
-        {
-          "label": "Material",
-          "value": "Thick-wall polypropylene"
-        },
-        {
-          "label": "Closure",
-          "value": "External thread + O-ring"
-        },
-        {
-          "label": "Temperature",
-          "value": "-196 ┬░C (vapor)"
-        },
-        {
-          "label": "Pack",
-          "value": "100 units"
-        },
-        {
-          "label": "Application",
-          "value": "Cryopreservation"
-        }
-      ]
-    },
-    {
-      "id": "vial-crimp-10ml",
-      "name": "Crimp Vial 10 mL — Clear",
-      "description": "20 mm crimp vial, 10 mL, clear glass. Ideal for hermetic sealing. Pack of 100.",
-      "longDescription": "20 mm crimp vial in Type I clear glass, 10 mL. Designed for hermetic sealing with aluminum cap and septum, ensuring sample integrity. Suitable for storing reagents and standards.",
-      "category": "crimp",
-      "status": "in-stock",
-      "price": 45,
-      "currency": "EUR",
-      "dateAdded": "2026-07-05",
-      "image": "assets/images/vial-crimp.svg",
-      "gallery": [
-        "assets/images/vial-crimp.svg"
-      ],
-      "specifications": [
-        {
-          "label": "Volume",
-          "value": "10 mL"
-        },
-        {
-          "label": "Material",
-          "value": "Type I clear glass"
-        },
-        {
-          "label": "Closure",
-          "value": "20 mm crimp"
-        },
-        {
-          "label": "Sealing",
-          "value": "Hermetic"
-        },
-        {
-          "label": "Pack",
-          "value": "100 units"
-        },
-        {
-          "label": "Application",
-          "value": "Reagents / Standards"
-        }
-      ]
-    },
-    {
-      "id": "vial-headspace-20ml",
-      "name": "Headspace Vial 20 mL — Crimp",
-      "description": "20 mL headspace vial, 20 mm flat neck, round bottom. For GC-HS. Pack of 100.",
-      "longDescription": "20 mL headspace vial in Type I glass, 20 mm flat neck and rounded bottom for uniform heating. Compatible with automatic headspace samplers. Crimp or magnetic cap sealing.",
-      "category": "crimp",
-      "status": "on-order",
-      "price": 48,
-      "currency": "EUR",
-      "dateAdded": "2026-06-08",
-      "image": "assets/images/vial-crimp.svg",
-      "gallery": [
-        "assets/images/vial-crimp.svg"
-      ],
-      "specifications": [
-        {
-          "label": "Volume",
-          "value": "20 mL"
-        },
-        {
-          "label": "Material",
-          "value": "Type I clear glass"
-        },
-        {
-          "label": "Closure",
-          "value": "20 mm crimp / magnetic"
-        },
-        {
-          "label": "Bottom",
-          "value": "Round"
-        },
-        {
-          "label": "Pack",
-          "value": "100 units"
-        },
-        {
-          "label": "Application",
-          "value": "GC Headspace"
-        }
-      ]
-    },
-    {
-      "id": "vial-amber-40ml-voc",
-      "name": "Amber Vial 40 mL — EPA VOC",
-      "description": "40 mL amber vial 24-400 thread with septum, for water/soil sampling. Pack of 72.",
-      "longDescription": "40 mL amber vial for water and soil sampling in VOC analysis (EPA methods 8260/524). 24-400 thread with open-top cap and PTFE/silicone septum. Supplied precleaned with lot certificate.",
-      "category": "amber",
-      "status": "in-stock",
-      "price": 55,
-      "currency": "EUR",
-      "dateAdded": "2026-07-14",
-      "image": "assets/images/vial-amber.svg",
-      "gallery": [
-        "assets/images/vial-amber.svg"
-      ],
-      "specifications": [
-        {
-          "label": "Volume",
-          "value": "40 mL"
-        },
-        {
-          "label": "Material",
-          "value": "Type I amber glass"
-        },
-        {
-          "label": "Closure",
-          "value": "24-400 thread + PTFE septum"
-        },
-        {
-          "label": "Certification",
-          "value": "EPA / precleaned"
-        },
-        {
-          "label": "Pack",
-          "value": "72 units"
-        },
-        {
-          "label": "Application",
-          "value": "Water & soil VOC"
-        }
-      ]
-    },
-    {
-      "id": "vial-scintillation-20ml",
-      "name": "Scintillation Vial 20 mL — HDPE",
-      "description": "20 mL HDPE scintillation vial with screw cap and cone liner. Pack of 100.",
-      "longDescription": "20 mL scintillation vial in high-density polyethylene (HDPE), with 22 mm screw cap and cone liner for leak-free sealing. An economical, unbreakable alternative to glass for liquid scintillation counting.",
-      "category": "clear",
-      "status": "in-stock",
-      "price": 30,
-      "currency": "EUR",
-      "dateAdded": "2026-06-22",
-      "image": "assets/images/vial-serum.svg",
-      "gallery": [
-        "assets/images/vial-serum.svg"
-      ],
-      "specifications": [
-        {
-          "label": "Volume",
-          "value": "20 mL"
-        },
-        {
-          "label": "Material",
-          "value": "HDPE"
-        },
-        {
-          "label": "Closure",
-          "value": "22 mm screw cap with cone"
-        },
-        {
-          "label": "Resistance",
-          "value": "Unbreakable"
-        },
-        {
-          "label": "Pack",
-          "value": "100 units"
-        },
-        {
-          "label": "Application",
-          "value": "Liquid scintillation"
+          "label": "Brand",
+          "value": "Centurion Laboratories"
         }
       ]
     }
   ],
   "catalogSection": {
-    "eyebrow": "Product Catalog",
-    "title": "Laboratory Vials & Glassware",
-    "description": "Browse our range of vials, bottles and cryovials in glass and polypropylene — for chromatography, storage, environmental sampling and cryopreservation.",
-    "searchPlaceholder": "Search by volume, material, application…",
+    "eyebrow": "Product Catalogue",
+    "title": "Premium Products",
+    "description": "Browse our current range of peptide pens and pharmaceutical products available for international customers.",
+    "searchPlaceholder": "Search products...",
     "loadMoreLabel": "Load More Products",
-    "emptyState": "No products match your criteria. Try adjusting the filters.",
+    "emptyState": "No products match your filters.",
     "resultsLabel": "products found"
   },
   "ordering": {
@@ -688,6 +341,7 @@
     "title": "Your Cart",
     "empty": "Your cart is empty. Browse the catalog to add products.",
     "subtotalLabel": "Subtotal",
+    "totalLabel": "Total",
     "checkoutTitle": "Delivery Details",
     "checkoutSubtitle": "Fill in your details to place the order. A payment link will be sent to your email.",
     "addToCartLabel": "Add to Cart",
@@ -701,6 +355,11 @@
     "successTitle": "Order received",
     "successText": "Thank you! Your order has been received. A payment link will be sent to your email shortly.",
     "errorText": "We could not send your order. Please try again in a moment.",
+    "couponLabel": "Discount code",
+    "couponApply": "Apply",
+    "couponRemove": "Remove",
+    "couponInvalid": "This discount code is not valid.",
+    "discountLabel": "Discount",
     "fields": {
       "fullName": "Full name",
       "email": "Email",
@@ -709,7 +368,8 @@
       "city": "City",
       "postalCode": "Postal code",
       "country": "Country",
-      "notes": "Order notes (optional)"
+      "notes": "Order notes (optional)",
+      "coupon": "Discount code"
     }
   },
   "email": {
@@ -719,5 +379,30 @@
     "customerTemplateId": "template_2fz5g2a",
     "adminTemplateId": "template_vleyp8p",
     "adminEmail": "synvorax@gmail.com"
+  },
+  "shipping": {
+    "freeThreshold": 200,
+    "fee": 10,
+    "label": "Delivery",
+    "freeLabel": "Free",
+    "chargedDetail": "flat rate for the whole order",
+    "freeDetail": "on orders {threshold}+",
+    "chargedNote": "Delivery is {fee} for the whole order on purchases under {threshold}.",
+    "progressNote": "Add {remaining} more for free delivery.",
+    "freeNote": "Free delivery — this order is {threshold} or more."
+  },
+  "orders": {
+    "provider": "apps-script",
+    "endpoint": "https://script.google.com/macros/s/AKfycbyV-SnJY-YH0CK_beXPvzQ6Is3WtHFvSrsTLo8xJn2U_ovm380aNDXtBeCOIAuKo7Mu/exec"
+  },
+  "welcome": {
+    "storageKey": "synvorax-welcome-v1",
+    "eyebrow": "Welcome offer",
+    "title": "10% off your first order",
+    "text": "Use this code at checkout to apply your welcome discount.",
+    "code": "WELCOME10",
+    "copyHint": "Click to copy",
+    "copiedHint": "Copied",
+    "button": "Start shopping"
   }
 }

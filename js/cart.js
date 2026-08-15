@@ -8,6 +8,8 @@ const CartManager = (() => {
   let items = [];
   let drawer = null;
   let submitting = false;
+  let appliedCoupon = null;
+  let couponCheck = 0;
 
   function load() {
     try {
@@ -23,6 +25,7 @@ const CartManager = (() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
     updateBadge();
     render();
+    refreshCoupon();
   }
 
   function getProduct(id) {
@@ -64,6 +67,44 @@ const CartManager = (() => {
     }, 0);
   }
 
+  function shippingConfig() {
+    const cfg = catalog?.shipping || {};
+    return {
+      freeThreshold: Number(cfg.freeThreshold) || 200,
+      fee: Number(cfg.fee) || 0,
+      label: cfg.label || 'Delivery',
+      freeLabel: cfg.freeLabel || 'Free',
+      chargedDetail: cfg.chargedDetail || 'flat rate for the whole order',
+      freeDetail: cfg.freeDetail || 'on orders {threshold}+',
+      chargedNote: cfg.chargedNote || 'Delivery is {fee} for the whole order on purchases under {threshold}.',
+      progressNote: cfg.progressNote || 'Add {remaining} more for free delivery.',
+      freeNote: cfg.freeNote || 'Free delivery — this order is {threshold} or more.',
+    };
+  }
+
+  function fillCopy(template, vars) {
+    return String(template || '').replace(/\{(\w+)\}/g, (_, key) => (
+      vars[key] == null ? '' : String(vars[key])
+    ));
+  }
+
+  function totals() {
+    const goods = subtotal();
+    const cfg = shippingConfig();
+    const isFree = goods >= cfg.freeThreshold;
+    const shipping = isFree ? 0 : cfg.fee;
+    const discount = appliedCoupon ? Number(appliedCoupon.discount) || 0 : 0;
+    return {
+      goods,
+      shipping,
+      discount,
+      total: Math.max(0, goods - discount) + shipping,
+      isFree,
+      remaining: Math.max(0, cfg.freeThreshold - goods),
+      cfg,
+    };
+  }
+
   function add(productId, qty = 1) {
     const product = getProduct(productId);
     if (!product || product.status === 'out-of-stock') return false;
@@ -94,7 +135,9 @@ const CartManager = (() => {
 
   function clear() {
     items = [];
+    appliedCoupon = null;
     save();
+    syncCouponUi();
   }
 
   function open() {
@@ -136,11 +179,16 @@ const CartManager = (() => {
     setText('[data-cart-title]', copy.title);
     setText('[data-cart-empty]', copy.empty);
     setText('[data-cart-subtotal-label]', copy.subtotalLabel);
+    setText('[data-cart-total-label]', copy.totalLabel || 'Total');
+    setText('[data-cart-shipping-label]', shippingConfig().label);
     setText('[data-checkout-title]', copy.checkoutTitle);
     setText('[data-checkout-subtitle]', copy.checkoutSubtitle);
     setText('#cart-to-checkout', 'Checkout');
     setText('#checkout-back', '← Back to cart');
     setText('#checkout-submit', copy.placeOrderLabel);
+    setText('#coupon-apply', copy.couponApply || 'Apply');
+    setText('#coupon-remove', copy.couponRemove || 'Remove');
+    setText('[data-cart-discount-label]', copy.discountLabel || 'Discount');
     setText('[data-success-title]', copy.successTitle);
     setText('#success-text', copy.successText);
     setText('#success-close', copy.continueLabel);
@@ -194,15 +242,72 @@ const CartManager = (() => {
       `;
     }).join('');
 
-    if (subtotalEl) subtotalEl.textContent = formatMoney(subtotal(), cartCurrency());
+    const t = totals();
+    const currency = cartCurrency();
+    const cfg = t.cfg;
+    const vars = {
+      fee: formatMoney(cfg.fee, currency),
+      threshold: formatMoney(cfg.freeThreshold, currency),
+      remaining: formatMoney(t.remaining, currency),
+    };
+
+    if (subtotalEl) subtotalEl.textContent = formatMoney(t.goods, currency);
+
+    const shippingEl = document.getElementById('cart-shipping');
+    const shippingDetail = document.getElementById('cart-shipping-detail');
+    const shippingRow = document.getElementById('cart-shipping-row');
+    const shippingNote = document.getElementById('cart-shipping-note');
+    const totalEl = document.getElementById('cart-total');
+
+    if (shippingEl) {
+      shippingEl.textContent = t.isFree ? cfg.freeLabel : formatMoney(t.shipping, currency);
+    }
+    if (shippingDetail) {
+      shippingDetail.textContent = t.isFree
+        ? fillCopy(cfg.freeDetail, vars)
+        : cfg.chargedDetail;
+    }
+    if (shippingRow) shippingRow.classList.toggle('is-free', t.isFree);
+    if (shippingNote) {
+      shippingNote.textContent = t.isFree
+        ? fillCopy(cfg.freeNote, vars)
+        : `${fillCopy(cfg.chargedNote, vars)} ${fillCopy(cfg.progressNote, vars)}`.trim();
+    }
+    if (totalEl) totalEl.textContent = formatMoney(t.total, currency);
+
+    const discountRow = document.getElementById('cart-discount-row');
+    const discountEl = document.getElementById('cart-discount');
+    const discountDetail = document.getElementById('cart-discount-detail');
+    if (discountRow) discountRow.hidden = !(t.discount > 0);
+    if (discountEl) discountEl.textContent = `−${formatMoney(t.discount, currency)}`;
+    if (discountDetail) {
+      discountDetail.textContent = appliedCoupon
+        ? `${appliedCoupon.code}${appliedCoupon.label ? ' · ' + appliedCoupon.label : ''}`
+        : '';
+    }
 
     const summary = document.getElementById('checkout-summary');
     if (summary) {
-      summary.innerHTML = items.map(line => {
+      const productRows = items.map(line => {
         const product = getProduct(line.id);
         if (!product) return '';
         return `<li><span>${line.qty}× ${product.name}</span><strong>${formatMoney((product.price || 0) * line.qty, product.currency)}</strong></li>`;
-      }).join('') + `<li class="checkout-summary__total"><span>${copy.subtotalLabel || 'Subtotal'}</span><strong>${formatMoney(subtotal(), cartCurrency())}</strong></li>`;
+      }).join('');
+
+      const shippingValue = t.isFree ? cfg.freeLabel : formatMoney(t.shipping, currency);
+      const shippingHint = t.isFree
+        ? fillCopy(cfg.freeDetail, vars)
+        : cfg.chargedDetail;
+
+      const discountRowHtml = t.discount > 0
+        ? `<li class="checkout-summary__discount"><span>${copy.discountLabel || 'Discount'}<small>${appliedCoupon.code}${appliedCoupon.label ? ' · ' + appliedCoupon.label : ''}</small></span><strong>−${formatMoney(t.discount, currency)}</strong></li>`
+        : '';
+
+      summary.innerHTML = productRows +
+        `<li><span>${copy.subtotalLabel || 'Subtotal'}</span><strong>${formatMoney(t.goods, currency)}</strong></li>` +
+        discountRowHtml +
+        `<li class="checkout-summary__shipping ${t.isFree ? 'is-free' : ''}"><span>${cfg.label}<small>${shippingHint}</small></span><strong>${shippingValue}</strong></li>` +
+        `<li class="checkout-summary__total"><span>${copy.totalLabel || 'Total'}</span><strong>${formatMoney(t.total, currency)}</strong></li>`;
     }
   }
 
@@ -210,6 +315,11 @@ const CartManager = (() => {
     const fd = new FormData(form);
     const currency = cartCurrency();
     const orderId = `SVX-${Date.now().toString(36).toUpperCase()}`;
+    const t = totals();
+    const shippingName = t.isFree
+      ? `${t.cfg.label} — ${t.cfg.freeLabel}`
+      : `${t.cfg.label} — ${formatMoney(t.cfg.fee, currency)}`;
+
     const lines = items.map(line => {
       const product = getProduct(line.id);
       return {
@@ -220,6 +330,15 @@ const CartManager = (() => {
         lineTotal: (product?.price || 0) * line.qty,
         currency: product?.currency || currency,
       };
+    });
+
+    lines.push({
+      id: 'delivery',
+      name: shippingName,
+      qty: 1,
+      unitPrice: t.shipping,
+      lineTotal: t.shipping,
+      currency,
     });
 
     const customer = {
@@ -250,10 +369,148 @@ const CartManager = (() => {
       shippingAddress,
       lines,
       orderItemsText,
-      total: formatMoney(subtotal(), currency),
+      total: formatMoney(t.total, currency),
+      subtotal: formatMoney(t.goods, currency),
+      shippingFee: formatMoney(t.shipping, currency),
       companyName: catalog.company?.name || 'Synvorax Labs',
       adminEmail: catalog.email?.adminEmail || 'synvorax@gmail.com',
+      couponCode: appliedCoupon?.code || '',
     };
+  }
+
+  function couponCopy() {
+    return catalog.cart || {};
+  }
+
+  function setCouponMessage(text, isError = false) {
+    const el = document.getElementById('coupon-message');
+    if (!el) return;
+    el.textContent = text || '';
+    el.hidden = !text;
+    el.classList.toggle('is-error', Boolean(isError && text));
+  }
+
+  function syncCouponUi() {
+    const input = document.getElementById('coupon-input');
+    const applyBtn = document.getElementById('coupon-apply');
+    const removeBtn = document.getElementById('coupon-remove');
+    const active = Boolean(appliedCoupon);
+
+    if (input) {
+      if (active) input.value = appliedCoupon.code;
+      input.readOnly = active;
+    }
+    if (applyBtn) applyBtn.hidden = active;
+    if (removeBtn) removeBtn.hidden = !active;
+  }
+
+  async function requestCoupon(code, goods) {
+    const endpoint = catalog.orders?.endpoint;
+    if (!isConfigured(endpoint)) {
+      throw new Error('Order endpoint is not configured');
+    }
+
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({
+        action: 'validateCoupon',
+        code,
+        subtotal: goods,
+      }),
+    });
+
+    if (!res.ok) throw new Error(`Coupon endpoint returned ${res.status}`);
+    const result = await res.json();
+    if (!result.ok) throw new Error(result.error || couponCopy().couponInvalid || 'Invalid code');
+    return result;
+  }
+
+  async function applyCouponFromInput() {
+    const input = document.getElementById('coupon-input');
+    const applyBtn = document.getElementById('coupon-apply');
+    const copy = couponCopy();
+    const code = String(input?.value || '').trim();
+
+    if (!code) {
+      setCouponMessage(copy.couponInvalid || 'Enter a discount code.', true);
+      return;
+    }
+
+    if (applyBtn) {
+      applyBtn.disabled = true;
+      applyBtn.textContent = 'Checking…';
+    }
+
+    try {
+      appliedCoupon = await requestCoupon(code, subtotal());
+      setCouponMessage(`${appliedCoupon.code} applied — ${appliedCoupon.label}.`);
+      syncCouponUi();
+      render();
+    } catch (err) {
+      appliedCoupon = null;
+      setCouponMessage(err.message || copy.couponInvalid, true);
+      syncCouponUi();
+      render();
+    } finally {
+      if (applyBtn) {
+        applyBtn.disabled = false;
+        applyBtn.textContent = copy.couponApply || 'Apply';
+      }
+    }
+  }
+
+  function removeCoupon() {
+    appliedCoupon = null;
+    const input = document.getElementById('coupon-input');
+    if (input) input.value = '';
+    setCouponMessage('');
+    syncCouponUi();
+    render();
+  }
+
+  async function refreshCoupon() {
+    if (!appliedCoupon) return;
+    const id = ++couponCheck;
+    const code = appliedCoupon.code;
+    try {
+      const quoted = await requestCoupon(code, subtotal());
+      if (id !== couponCheck) return;
+      appliedCoupon = quoted;
+      render();
+      syncCouponUi();
+    } catch (err) {
+      if (id !== couponCheck) return;
+      appliedCoupon = null;
+      setCouponMessage(err.message || couponCopy().couponInvalid, true);
+      syncCouponUi();
+      render();
+    }
+  }
+
+  function isConfigured(value) {
+    return Boolean(value) && !String(value).startsWith('REPLACE_');
+  }
+
+  async function submitOrder(order) {
+    const endpoint = catalog.orders?.endpoint;
+
+    if (isConfigured(endpoint)) {
+      // text/plain keeps this a simple request, so Apps Script never sees a CORS preflight
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(order),
+      });
+
+      if (!res.ok) throw new Error(`Order endpoint returned ${res.status}`);
+
+      const result = await res.json();
+      if (!result.ok) throw new Error(result.error || 'Order was rejected');
+      return;
+    }
+
+    await sendEmails(order);
   }
 
   async function sendEmails(order) {
@@ -263,7 +520,7 @@ const CartManager = (() => {
     }
 
     const missing = ['publicKey', 'serviceId', 'customerTemplateId', 'adminTemplateId']
-      .filter(key => !cfg[key] || String(cfg[key]).startsWith('REPLACE_'));
+      .filter(key => !isConfigured(cfg[key]));
     if (missing.length) {
       throw new Error(`EmailJS not configured (${missing.join(', ')})`);
     }
@@ -321,7 +578,7 @@ const CartManager = (() => {
 
     try {
       const order = buildOrderPayload(form);
-      await sendEmails(order);
+      await submitOrder(order);
       clear();
       form.reset();
       const successText = document.getElementById('success-text');
@@ -414,6 +671,13 @@ const CartManager = (() => {
     });
 
     drawer.querySelector('#checkout-form')?.addEventListener('submit', onSubmit);
+    drawer.querySelector('#coupon-apply')?.addEventListener('click', applyCouponFromInput);
+    drawer.querySelector('#coupon-remove')?.addEventListener('click', removeCoupon);
+    drawer.querySelector('#coupon-input')?.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter') return;
+      e.preventDefault();
+      if (!appliedCoupon) applyCouponFromInput();
+    });
   }
 
   function init(data) {
@@ -427,6 +691,7 @@ const CartManager = (() => {
     applyCopy();
     render();
     updateBadge();
+    syncCouponUi();
   }
 
   return { init, open, close, add, count };
